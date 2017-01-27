@@ -11,6 +11,18 @@ Summary: A Python package providing buffer compression and transformation codecs
 
 
 
+Current build status
+====================
+
+Linux: [![Circle CI](https://circleci.com/gh/conda-forge/numcodecs-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/numcodecs-feedstock)
+OSX: [![TravisCI](https://travis-ci.org/conda-forge/numcodecs-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/numcodecs-feedstock)
+Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/numcodecs-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/numcodecs-feedstock/branch/master)
+
+Current release info
+====================
+Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/numcodecs/badges/version.svg)](https://anaconda.org/conda-forge/numcodecs)
+Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/numcodecs/badges/downloads.svg)](https://anaconda.org/conda-forge/numcodecs)
+
 Installing numcodecs
 ====================
 
@@ -31,7 +43,6 @@ It is possible to list all of the versions of `numcodecs` available on your plat
 ```
 conda search numcodecs --channel conda-forge
 ```
-
 
 
 About conda-forge
@@ -67,18 +78,6 @@ Terminology
 
 **conda-forge** - the place where the feedstock and smithy live and work to
                   produce the finished article (built conda distributions)
-
-Current build status
-====================
-
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/numcodecs-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/numcodecs-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/numcodecs-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/numcodecs-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/numcodecs-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/numcodecs-feedstock/branch/master)
-
-Current release info
-====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/numcodecs/badges/version.svg)](https://anaconda.org/conda-forge/numcodecs)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/numcodecs/badges/downloads.svg)](https://anaconda.org/conda-forge/numcodecs)
 
 
 Updating numcodecs-feedstock
