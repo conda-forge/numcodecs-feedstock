@@ -1,16 +1,18 @@
+{% set name = "numcodecs" %}
 {% set version = "0.0.1" %}
+{% set sha256 = "5b2095bfec7771be7ea66c27534db8bddef1848ed34d09b7dd28228e952d5076" %}
 
 package:
-  name: numcodecs
+  name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: numcodecs-v{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/n/numcodecs/numcodecs-{{ version }}.tar.gz
-  sha256: 5b2095bfec7771be7ea66c27534db8bddef1848ed34d09b7dd28228e952d5076
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
