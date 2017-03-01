@@ -1,6 +1,6 @@
 {% set name = "numcodecs" %}
-{% set version = "0.0.1" %}
-{% set sha256 = "5b2095bfec7771be7ea66c27534db8bddef1848ed34d09b7dd28228e952d5076" %}
+{% set version = "0.1.0" %}
+{% set sha256 = "d2bf40baaa94bb137519faa09e9e3d3d0c92f994759bb3222907eaa2680ee9c9" %}
 
 package:
   name: {{ name|lower }}
@@ -12,8 +12,8 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
-  script: python setup.py install --single-version-externally-managed --record record.txt
+  number: 0
+  script: DISABLE_NUMCODECS_AVX2= python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
   build:
@@ -24,6 +24,8 @@ requirements:
   run:
     - python
     - numpy
+    - msgpack-python
+    - backports.lzma  # [py27]
 
 test:
   requires:
@@ -31,6 +33,8 @@ test:
   imports:
     - numcodecs
     - numcodecs.blosc
+    - numcodecs.lz4
+    - numcodecs.zstd
   commands:
     - nosetests -v numcodecs
 
