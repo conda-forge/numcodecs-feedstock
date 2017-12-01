@@ -1,6 +1,6 @@
 {% set name = "numcodecs" %}
-{% set version = "0.3.0" %}
-{% set sha256 = "f0c41daeb45f081f6f17073ef41a89b0eed5bb7c830eba74a5209364ac5bdc65" %}
+{% set version = "0.3.1" %}
+{% set sha256 = "5694aa3307de57166b6c1c3b7f437af1a1b54867804b90739527dacf7a361e87" %}
 
 package:
   name: {{ name|lower }}
