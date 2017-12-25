@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   script:
     - export DISABLE_NUMCODECS_AVX2=""  # [unix]
     - set DISABLE_NUMCODECS_AVX2=""  # [win]
@@ -28,7 +28,7 @@ requirements:
     - python
     - numpy
     - msgpack-python
-    - backports.lzma  # [py27 and unix]
+    - backports.lzma  # [py27]
 
 test:
   requires:
@@ -44,6 +44,7 @@ test:
 about:
   home: https://github.com/alimanfoo/numcodecs
   license: MIT
+  license_file: LICENSE
   summary: A Python package providing buffer compression and transformation codecs for use in data storage and communication applications.
 
 extra:
