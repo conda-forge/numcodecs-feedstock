@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   script:
     - export DISABLE_NUMCODECS_AVX2=""  # [unix]
     - set DISABLE_NUMCODECS_AVX2=""  # [win]
