@@ -1,7 +1,7 @@
 About numcodecs
 ===============
 
-Home: https://github.com/alimanfoo/numcodecs
+Home: https://github.com/zarr-developers/numcodecs
 
 Package license: MIT
 

@@ -1,6 +1,6 @@
 {% set name = "numcodecs" %}
-{% set version = "0.5.2" %}
-{% set sha256 = "4c71d09ea34196f6f5a0e2091a7f41a7a5964a0bb4cbcbec8b92049c8799b417" %}
+{% set version = "0.5.3" %}
+{% set sha256 = "6f62f9225919b2cc951c7fe7fdeb616e46ebeda4623481602218df0759814acf" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   script:
     - export DISABLE_NUMCODECS_AVX2=""  # [unix]
     - set DISABLE_NUMCODECS_AVX2=""  # [win]
@@ -32,17 +32,17 @@ requirements:
 
 test:
   requires:
-    - nose
+    - pytest
   imports:
     - numcodecs
     - numcodecs.blosc
     - numcodecs.lz4
     - numcodecs.zstd
   commands:
-    - nosetests -v numcodecs
+    - pytest -v --pyargs numcodecs
 
 about:
-  home: https://github.com/alimanfoo/numcodecs
+  home: https://github.com/zarr-developers/numcodecs
   license: MIT
   license_file: LICENSE
   summary: A Python package providing buffer compression and transformation codecs for use in data storage and communication applications.
