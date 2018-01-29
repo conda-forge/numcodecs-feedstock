@@ -39,7 +39,7 @@ test:
     - numcodecs.lz4
     - numcodecs.zstd
   commands:
-    - pytest -v numcodecs
+    - pytest -v --pyargs numcodecs
 
 about:
   home: https://github.com/alimanfoo/numcodecs
