@@ -32,14 +32,14 @@ requirements:
 
 test:
   requires:
-    - nose
+    - pytest
   imports:
     - numcodecs
     - numcodecs.blosc
     - numcodecs.lz4
     - numcodecs.zstd
   commands:
-    - nosetests -v numcodecs
+    - pytest -v numcodecs
 
 about:
   home: https://github.com/alimanfoo/numcodecs
