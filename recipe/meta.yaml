@@ -41,6 +41,19 @@ test:
   commands:
     - pytest -v --pyargs numcodecs
 
+outputs:
+  - name: {{ PKG_NAME }}
+    type: conda
+  - type: wheel
+    build:
+      activate_in_script: true
+    requirements:
+      build:
+        - python
+        - cython
+        - setuptools
+        - setuptools_scm
+
 about:
   home: https://github.com/zarr-developers/numcodecs
   license: MIT
