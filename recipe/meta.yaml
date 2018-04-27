@@ -20,6 +20,8 @@ build:
 
 requirements:
   build:
+    - {{ compiler('c') }}  # [win]
+  host:
     - python
     - cython
     - setuptools
