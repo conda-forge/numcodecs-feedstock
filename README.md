@@ -14,14 +14,16 @@ Summary: A Python package providing buffer compression and transformation codecs
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/numcodecs-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/numcodecs-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/numcodecs-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/numcodecs-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/numcodecs-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/numcodecs-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/numcodecs-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/numcodecs-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/numcodecs-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/numcodecs-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/numcodecs-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/numcodecs-feedstock/branch/master)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/numcodecs/badges/version.svg)](https://anaconda.org/conda-forge/numcodecs)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/numcodecs/badges/downloads.svg)](https://anaconda.org/conda-forge/numcodecs)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-numcodecs-green.svg)](https://anaconda.org/conda-forge/numcodecs) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/numcodecs.svg)](https://anaconda.org/conda-forge/numcodecs) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/numcodecs.svg)](https://anaconda.org/conda-forge/numcodecs) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/numcodecs.svg)](https://anaconda.org/conda-forge/numcodecs) |
 
 Installing numcodecs
 ====================
