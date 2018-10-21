@@ -16,7 +16,7 @@ build:
   script:
     - export DISABLE_NUMCODECS_AVX2=""  # [unix]
     - set DISABLE_NUMCODECS_AVX2=""  # [win]
-    - "{{ PYTHON }} -m pip install . -vvv"
+    - python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
   build:
@@ -27,7 +27,6 @@ requirements:
     - cython
     - setuptools
     - setuptools_scm
-    - pip
   run:
     - python
     - numpy
