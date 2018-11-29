@@ -16,7 +16,7 @@ build:
   script:
     - export DISABLE_NUMCODECS_AVX2=""  # [unix]
     - set DISABLE_NUMCODECS_AVX2=""  # [win]
-    - python setup.py install --single-version-externally-managed --record record.txt
+    - {{ PYTHON }} -m pip install . -vvv
 
 requirements:
   build:
@@ -24,6 +24,7 @@ requirements:
     - {{ compiler('cxx') }}
   host:
     - python
+    - pip
     - cython
     - setuptools
     - setuptools_scm
