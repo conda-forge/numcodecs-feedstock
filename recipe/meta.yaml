@@ -1,6 +1,6 @@
 {% set name = "numcodecs" %}
-{% set version = "0.5.5" %}
-{% set sha256 = "7fdb60c40e902933f2ca4f65c8489d56697e7b0e4dffac4cb48ac58d8cce3aad" %}
+{% set version = "0.6.0" %}
+{% set sha256 = "7144d293627d6317a4ac17836693117f52f74ff997fcd9eb2348b78ede359866" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1001
+  number: 1000
   script:
     - export DISABLE_NUMCODECS_AVX2=""  # [unix]
     - set DISABLE_NUMCODECS_AVX2=""  # [win]
