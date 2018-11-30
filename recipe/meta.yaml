@@ -16,7 +16,7 @@ build:
   script:
     - export DISABLE_NUMCODECS_AVX2=""  # [unix]
     - set DISABLE_NUMCODECS_AVX2=""  # [win]
-    - {{ PYTHON }} -m pip install . --no-deps -vvv
+    - {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   build:
