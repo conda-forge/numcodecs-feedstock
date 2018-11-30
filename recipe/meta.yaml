@@ -12,11 +12,11 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1000
+  number: 1001
   script:
     - export DISABLE_NUMCODECS_AVX2=""  # [unix]
     - set DISABLE_NUMCODECS_AVX2=""  # [win]
-    - {{ PYTHON }} -m pip install . -vvv
+    - {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   build:
