@@ -1,15 +1,13 @@
 {% set name = "numcodecs" %}
-{% set version = "0.6.3" %}
-{% set sha256 = "5e98413d5d1156def888acd131bed7f3c21313847521efbd7f3707103de5d820" %}
+{% set version = "0.6.4.dev55" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  git_url: https://github.com/zarr-developers/numcodecs
+  git_rev: 7f28815870dbdedf126486d72b78506c2886ff73
 
 build:
   number: 0
