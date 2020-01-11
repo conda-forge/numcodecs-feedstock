@@ -220,4 +220,5 @@ Feedstock Maintainers
 
 * [@alimanfoo](https://github.com/alimanfoo/)
 * [@jakirkham](https://github.com/jakirkham/)
+* [@jrbourbeau](https://github.com/jrbourbeau/)
 
