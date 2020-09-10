@@ -38,9 +38,9 @@ test:
     - pytest
   imports:
     - numcodecs
-    - numcodecs.blosc
-    - numcodecs.lz4
-    - numcodecs.zstd
+    - numcodecs.blosc  # [python_impl != "pypy"]
+    - numcodecs.lz4    # [python_impl != "pypy"]
+    - numcodecs.zstd   # [python_impl != "pypy"]
   commands:
     - pytest -v --pyargs numcodecs
 
