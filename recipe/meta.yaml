@@ -32,7 +32,6 @@ requirements:
     - python
     - numpy >=1.7
     - msgpack-python
-    - backports.lzma  # [py27]
 
 test:
   requires:
