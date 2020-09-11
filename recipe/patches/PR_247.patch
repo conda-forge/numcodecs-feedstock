@@ -1,0 +1,57 @@
+From c2fd265018656e9a19c3e48e076c74816c954eaf Mon Sep 17 00:00:00 2001
+From: John Kirkham <jakirkham@gmail.com>
+Date: Thu, 10 Sep 2020 17:46:47 -0700
+Subject: [PATCH] Use `pytest.importorskip` for C-extension tests
+
+As these bits may or may not be built depending on whether C-extensions
+are supported, have pytest skip them if they are not `import`able.
+---
+ numcodecs/tests/test_blosc.py | 3 +++
+ numcodecs/tests/test_lz4.py   | 4 ++++
+ numcodecs/tests/test_zstd.py  | 4 ++++
+ 3 files changed, 11 insertions(+)
+
+diff --git a/numcodecs/tests/test_blosc.py b/numcodecs/tests/test_blosc.py
+index edc14fa..c41b2f1 100644
+--- a/numcodecs/tests/test_blosc.py
++++ b/numcodecs/tests/test_blosc.py
+@@ -6,6 +6,9 @@
+ import pytest
+ 
+ 
++pytest.importorskip("numcodecs.blosc")
++
++
+ from numcodecs import blosc
+ from numcodecs.blosc import Blosc
+ from numcodecs.tests.common import (check_encode_decode,
+diff --git a/numcodecs/tests/test_lz4.py b/numcodecs/tests/test_lz4.py
+index 94a0182..f14d44f 100644
+--- a/numcodecs/tests/test_lz4.py
++++ b/numcodecs/tests/test_lz4.py
+@@ -2,6 +2,10 @@
+ 
+ 
+ import numpy as np
++import pytest
++
++
++pytest.importorskip("numcodecs.lz4")
+ 
+ 
+ from numcodecs.lz4 import LZ4
+diff --git a/numcodecs/tests/test_zstd.py b/numcodecs/tests/test_zstd.py
+index de291c1..31bb709 100644
+--- a/numcodecs/tests/test_zstd.py
++++ b/numcodecs/tests/test_zstd.py
+@@ -2,6 +2,10 @@
+ 
+ 
+ import numpy as np
++import pytest
++
++
++pytest.importorskip("numcodecs.zstd")
+ 
+ 
+ from numcodecs.zstd import Zstd

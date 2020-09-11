@@ -10,6 +10,13 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    ################################################################
+    # Apply patch to skip some tests if C-extensions not built.    #
+    #                                                              #
+    # xref: https://github.com/zarr-developers/numcodecs/pull/247  #
+    ################################################################
+    - patches/PR_247.patch
 
 build:
   number: 1
