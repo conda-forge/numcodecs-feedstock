@@ -17,6 +17,7 @@ build:
   number: 0
   script:
     - export DISABLE_NUMCODECS_AVX2=""  # [unix]
+    - export DISABLE_NUMCODECS_SSE2=""  # [arm64]
     - set DISABLE_NUMCODECS_AVX2=""  # [win]
     - {{ PYTHON }} -m pip install . -vv
 
@@ -27,7 +28,6 @@ requirements:
     - cython                                 # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - python-blosc
   host:
     - python
     - pip
