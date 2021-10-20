@@ -17,6 +17,7 @@ build:
     - export DISABLE_NUMCODECS_AVX2=""  # [unix]
     - export DISABLE_NUMCODECS_SSE2=""  # [arm64]
     - set DISABLE_NUMCODECS_AVX2=""  # [win]
+    - export CC="${CC} -pthread"  # [linux]
     - {{ PYTHON }} -m pip install . -vv
 
 requirements:
