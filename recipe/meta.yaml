@@ -1,21 +1,19 @@
 {% set name = "numcodecs" %}
 {% set version = "0.9.1" %}
-{% set sha256 = "35adbcc746b95e3ac92e949a161811f5aa2602b9eb1ef241b5ea6f09bb220997" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  sha256: 35adbcc746b95e3ac92e949a161811f5aa2602b9eb1ef241b5ea6f09bb220997
 
 build:
-  number: 1
+  number: 2
   script:
     - export DISABLE_NUMCODECS_AVX2=""  # [unix]
-    - export DISABLE_NUMCODECS_SSE2=""  # [arm64]
+    - export DISABLE_NUMCODECS_SSE2=""  # [arm64 or aarch64 or ppc64le]
     - set DISABLE_NUMCODECS_AVX2=""  # [win]
     - export CFLAGS="${CFLAGS} -pthread"  # [aarch64 or ppc64le]
     - {{ PYTHON }} -m pip install . -vv
