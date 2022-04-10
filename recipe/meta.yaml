@@ -10,7 +10,7 @@ source:
   sha256: 35adbcc746b95e3ac92e949a161811f5aa2602b9eb1ef241b5ea6f09bb220997
 
 build:
-  number: 2
+  number: 3
   script:
     - export DISABLE_NUMCODECS_AVX2=""  # [unix]
     - export DISABLE_NUMCODECS_SSE2=""  # [arm64 or aarch64 or ppc64le]
