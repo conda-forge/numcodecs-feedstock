@@ -37,8 +37,6 @@ requirements:
     - numpy >=1.7
     - msgpack-python
     - typing-extensions >=3.7.4
-    # optional dependency
-    - entrypoints
 
 test:
   requires:
