@@ -10,7 +10,8 @@ source:
   sha256: 2dd42564e7772a9385923b02a363e3cedf053ce93094a9064485e7f69a6f1c92
 
 build:
-  number: 0
+  number: 1
+  skip: true  # [py<=36]
   script:
     - export DISABLE_NUMCODECS_AVX2=""  # [unix]
     - export DISABLE_NUMCODECS_SSE2=""  # [arm64 or aarch64 or ppc64le]
@@ -35,10 +36,12 @@ requirements:
     - python
     - numpy >=1.7
     - msgpack-python
+    - typing-extensions >=3.7.4
 
 test:
   requires:
     - pytest
+    - pip
   imports:
     - numcodecs
     - numcodecs.blosc
@@ -46,6 +49,7 @@ test:
     - numcodecs.zstd
   commands:
     - pytest -v --pyargs numcodecs
+    - pip check
 
 about:
   home: https://github.com/zarr-developers/numcodecs
