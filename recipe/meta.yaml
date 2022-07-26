@@ -34,6 +34,7 @@ requirements:
     - setuptools_scm >1.5.4
   run:
     - python
+    - entrypoints
     - numpy >=1.7
     - msgpack-python
     - typing-extensions >=3.7.4
