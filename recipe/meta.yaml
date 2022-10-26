@@ -10,7 +10,7 @@ source:
   sha256: 22838c6b3fd986bd9c724039b88870057f790e22b20e6e1cbbaa0de142dd59c4
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<=36]
   script:
     - export DISABLE_NUMCODECS_AVX2=""  # [unix]
