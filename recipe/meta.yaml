@@ -8,11 +8,17 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 22838c6b3fd986bd9c724039b88870057f790e22b20e6e1cbbaa0de142dd59c4
+  patches:
+    # this patch can be dropped in the next release
+    - backport_369.patch
 
 build:
   number: 1
   skip: true  # [py<=36]
   script:
+    # The next two lines can be dropped in the next release.
+    - rm numcodecs/*.c  # [not win]
+    - del /f numcodecs\*.c  # [win]
     - export DISABLE_NUMCODECS_AVX2=""  # [unix]
     - export DISABLE_NUMCODECS_SSE2=""  # [arm64 or aarch64 or ppc64le]
     - set DISABLE_NUMCODECS_AVX2=""  # [win]
