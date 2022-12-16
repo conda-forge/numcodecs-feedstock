@@ -30,18 +30,21 @@ requirements:
     - python
     - pip
     - cython
-    - setuptools >18.0
-    - setuptools_scm >1.5.4
+    - setuptools >=64
+    - setuptools_scm >=6.2
+    - tomli
+    - py-cpuinfo
   run:
     - python
     - entrypoints
     - numpy >=1.7
     - msgpack-python
-    - typing-extensions >=3.7.4
 
 test:
   requires:
+    - coverage
     - pytest
+    - pytest-cov
     - pip
   imports:
     - numcodecs
