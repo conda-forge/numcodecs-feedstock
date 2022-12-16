@@ -1,5 +1,5 @@
 {% set name = "numcodecs" %}
-{% set version = "0.10.2" %}
+{% set version = "0.11.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 22838c6b3fd986bd9c724039b88870057f790e22b20e6e1cbbaa0de142dd59c4
+  sha256: 6c058b321de84a1729299b0eae4d652b2e48ea1ca7f9df0da65cb13470e635eb
 
 build:
   number: 0
-  skip: true  # [py<=36]
   script:
     - export DISABLE_NUMCODECS_AVX2=""  # [unix]
     - export DISABLE_NUMCODECS_SSE2=""  # [arm64 or aarch64 or ppc64le]
@@ -30,18 +29,21 @@ requirements:
     - python
     - pip
     - cython
-    - setuptools >18.0
-    - setuptools_scm >1.5.4
+    - setuptools >=64
+    - setuptools_scm >=6.2
+    - tomli
+    - py-cpuinfo
   run:
     - python
     - entrypoints
     - numpy >=1.7
     - msgpack-python
-    - typing-extensions >=3.7.4
 
 test:
   requires:
+    - coverage
     - pytest
+    - pytest-cov
     - pip
   imports:
     - numcodecs
@@ -55,7 +57,7 @@ test:
 about:
   home: https://github.com/zarr-developers/numcodecs
   license: MIT
-  license_file: LICENSE
+  license_file: LICENSE.txt
   summary: A Python package providing buffer compression and transformation codecs for use in data storage and communication applications.
 
 extra:
