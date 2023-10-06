@@ -1,11 +1,11 @@
-About numcodecs
-===============
+About numcodecs-feedstock
+=========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/numcodecs-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/zarr-developers/numcodecs
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/numcodecs-feedstock/blob/main/LICENSE.txt)
 
 Summary: A Python package providing buffer compression and transformation codecs for use in data storage and communication applications.
 
