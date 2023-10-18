@@ -13,8 +13,8 @@ build:
   number: 0
   script_env:
     - DISABLE_NUMCODECS_AVX2=""
+    - DISABLE_NUMCODECS_SSE2=""  # [not x86]
   script:
-    - export DISABLE_NUMCODECS_SSE2=""  # [arm64 or aarch64 or ppc64le]
     - export CFLAGS="${CFLAGS} -pthread"  # [aarch64 or ppc64le]
     - {{ PYTHON }} -m pip install . -vv
 
