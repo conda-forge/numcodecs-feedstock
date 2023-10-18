@@ -1,5 +1,5 @@
 {% set name = "numcodecs" %}
-{% set version = "0.12.0" %}
+{% set version = "0.12.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 6388e5f4e94d18a7165fbd1c9d3637673b74157cff8bc644005f9e2a4c717d6e
+  sha256: 05d91a433733e7eef268d7e80ec226a0232da244289614a8f3826901aec1098e
 
 build:
-  number: 1
+  number: 0
   script:
     - export DISABLE_NUMCODECS_AVX2=""  # [unix]
     - export DISABLE_NUMCODECS_SSE2=""  # [arm64 or aarch64 or ppc64le]
