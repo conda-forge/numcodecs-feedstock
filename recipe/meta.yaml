@@ -41,6 +41,7 @@ requirements:
 test:
   requires:
     - coverage
+    - flake8
     - pytest
     - pytest-cov
     - pip
