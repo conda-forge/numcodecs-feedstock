@@ -1,6 +1,7 @@
 __migrator:
   build_number: 1
   kind: version
+  use_local: true
   commit_message: |
     Rebuild for numpy 2.0
     
