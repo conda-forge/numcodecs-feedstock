@@ -10,7 +10,7 @@ source:
   sha256: 05d91a433733e7eef268d7e80ec226a0232da244289614a8f3826901aec1098e
 
 build:
-  number: 0
+  number: 1
   script_env:
     - DISABLE_NUMCODECS_AVX2=""
     - DISABLE_NUMCODECS_SSE2=""  # [not x86]
@@ -23,6 +23,7 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython                                 # [build_platform != target_platform]
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
