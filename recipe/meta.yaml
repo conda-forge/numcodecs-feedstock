@@ -21,6 +21,7 @@ build:
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
+    - numpy                                  # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython                                 # [build_platform != target_platform]
     - {{ stdlib('c') }}
@@ -36,7 +37,7 @@ requirements:
     - py-cpuinfo
   run:
     - python
-    - numpy >=1.7
+    - numpy
     - msgpack-python
 
 test:
