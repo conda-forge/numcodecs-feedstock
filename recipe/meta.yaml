@@ -38,7 +38,7 @@ requirements:
     - py-cpuinfo
   run:
     - python
-    - numpy
+    - {{ pin_compatible('numpy') }}
     - msgpack-python
 
 test:
