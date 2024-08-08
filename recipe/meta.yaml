@@ -24,9 +24,7 @@ build:
     - DISABLE_NUMCODECS_SSE2=""  # [not x86]
   script:
     - export CFLAGS="${CFLAGS} -pthread"  # [aarch64 or ppc64le]
-    - mkdir builddir
-    - {{ PYTHON }} -m build --wheel --no-isolation --skip-dependency-check -Cbuilddir=builddir
-    - {{ PYTHON }} -m pip install --find-links dist {{ name }}
+    - {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
@@ -38,7 +36,6 @@ requirements:
     - {{ compiler('cxx') }}
   host:
     - python
-    - python-build
     - pip
     - cython
     - setuptools >=64
