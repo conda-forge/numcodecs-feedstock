@@ -8,6 +8,13 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: ba4fac7036ea5a078c7afe1d4dffeb9685080d42f19c9c16b12dad866703aa2e
+  patches:
+    ################################################################
+    # Revert NumPy build dependency                                #
+    #                                                              #
+    # xref: https://github.com/zarr-developers/numcodecs/pull/557  #
+    ################################################################
+    - patches/PR_557.patch
 
 build:
   number: 0

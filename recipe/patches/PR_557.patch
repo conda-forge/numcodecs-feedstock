@@ -1,0 +1,99 @@
+From 0377e4a6e19a43ad3f750aa3bd1411416a8ecb6f Mon Sep 17 00:00:00 2001
+From: Ryan Abernathey <ryan.abernathey@gmail.com>
+Date: Tue, 6 Aug 2024 09:15:31 -0400
+Subject: [PATCH] Revert "Allow VLenUTF8 to encode a read-only source (#515)"
+
+This reverts commit f9340520923aea28dd0ce6ca3160fde72ebc7aa1.
+---
+ docs/release.rst                  | 3 +--
+ numcodecs/tests/test_vlen_utf8.py | 5 +----
+ numcodecs/vlen.pyx                | 3 +--
+ pyproject.toml                    | 3 +--
+ setup.py                          | 3 +--
+ 5 files changed, 5 insertions(+), 12 deletions(-)
+
+diff --git a/docs/release.rst b/docs/release.rst
+index e682a3a6..2f47fb64 100644
+--- a/docs/release.rst
++++ b/docs/release.rst
+@@ -39,8 +39,7 @@ Enhancements
+ 
+ Fix
+ ~~~
+-* Fix VLenUTF8 encoding for read-only buffers.
+-  By :user:`Isaac Virshup <ivirshup>`, :issue:`514`.
++
+ * Fix skip of entry points backport tests
+   By :user:`Elliott Sales de Andrade <QuLogic>`, :issue:`487`.
+ * Fix Upgrade to Zstd 1.5.5 due to potential corruption.
+diff --git a/numcodecs/tests/test_vlen_utf8.py b/numcodecs/tests/test_vlen_utf8.py
+index 4501d929..c2ee525b 100644
+--- a/numcodecs/tests/test_vlen_utf8.py
++++ b/numcodecs/tests/test_vlen_utf8.py
+@@ -82,11 +82,8 @@ def test_decode_errors():
+         codec.decode(enc, out=np.zeros(10, dtype='i4'))
+ 
+ 
+-@pytest.mark.parametrize("writable", [True, False])
+-def test_encode_utf8(writable):
++def test_encode_utf8():
+     a = np.array(['foo', None, 'bar'], dtype=object)
+-    if not writable:
+-        a.setflags(write=False)
+     codec = VLenUTF8()
+     enc = codec.encode(a)
+     dec = codec.decode(enc)
+diff --git a/numcodecs/vlen.pyx b/numcodecs/vlen.pyx
+index e1e149ee..a1ff0e26 100644
+--- a/numcodecs/vlen.pyx
++++ b/numcodecs/vlen.pyx
+@@ -7,7 +7,6 @@
+ 
+ import cython
+ cimport cython
+-from numpy cimport ndarray
+ import numpy as np
+ from .abc import Codec
+ from .compat_ext cimport Buffer
+@@ -75,7 +74,7 @@ class VLenUTF8(Codec):
+     def encode(self, buf):
+         cdef:
+             Py_ssize_t i, l, n_items, data_length, total_length
+-            ndarray[object, ndim=1] input_values
++            object[:] input_values
+             object[:] encoded_values
+             int[:] encoded_lengths
+             char* encv
+diff --git a/pyproject.toml b/pyproject.toml
+index af8f040a..319b29d7 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -3,8 +3,7 @@ requires = [
+     "setuptools>=64",
+     "setuptools-scm[toml]>=6.2",
+     "Cython",
+-    "py-cpuinfo",
+-    "numpy",
++    "py-cpuinfo"
+ ]
+ build-backend = "setuptools.build_meta"
+ 
+diff --git a/setup.py b/setup.py
+index e594a203..ea8bc64c 100644
+--- a/setup.py
++++ b/setup.py
+@@ -196,13 +196,12 @@ def lz4_extension():
+ 
+ def vlen_extension():
+     info('setting up vlen extension')
+-    import numpy
+ 
+     extra_compile_args = base_compile_args.copy()
+     define_macros = []
+ 
+     # setup sources
+-    include_dirs = ['numcodecs', numpy.get_include()]
++    include_dirs = ['numcodecs']
+     # define_macros += [('CYTHON_TRACE', '1')]
+ 
+     sources = ['numcodecs/vlen.pyx']
