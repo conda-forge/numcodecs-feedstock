@@ -39,7 +39,6 @@ requirements:
   host:
     - python
     - python-build
-    - numpy
     - pip
     - cython
     - setuptools >=64
@@ -48,7 +47,7 @@ requirements:
     - py-cpuinfo
   run:
     - python
-    - {{ pin_compatible('numpy') }}
+    - numpy >=1.7
     - msgpack-python
 
 test:
