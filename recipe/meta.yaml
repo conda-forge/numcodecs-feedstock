@@ -36,10 +36,11 @@ requirements:
     - setuptools_scm >=6.2
     - tomli
     - py-cpuinfo
+    - numpy
   run:
     - python
-    - numpy >=1.7
     - msgpack-python
+    - {{ pin_compatible('numpy') }}
 
 test:
   requires:
