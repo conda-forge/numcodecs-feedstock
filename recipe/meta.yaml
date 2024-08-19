@@ -9,19 +9,21 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: ba4fac7036ea5a078c7afe1d4dffeb9685080d42f19c9c16b12dad866703aa2e
   patches:
-    # Fix the way assembly files are included on x86_64
+    # Fix compiling assembly files
+    # Can be removed when https://github.com/zarr-developers/numcodecs/pull/562
+    # is in a numcodecs release
     - patches/including_assmembly.patch
 
 build:
   number: 0
+  skip: true  # [py<310]
+
   script_env:
     - DISABLE_NUMCODECS_AVX2=""
     - DISABLE_NUMCODECS_SSE2=""  # [not x86]
   script:
     - export CFLAGS="${CFLAGS} -pthread"  # [aarch64 or ppc64le]
     - {{ PYTHON }} -m pip install . -vv
-
-  skip: true  # [py<310]
 
 requirements:
   build:
@@ -44,7 +46,7 @@ requirements:
   run:
     - python
     - msgpack-python
-    - {{ pin_compatible('numpy') }}
+    - numpy >=1.7
 
 test:
   requires:
