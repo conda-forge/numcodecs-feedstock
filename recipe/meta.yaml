@@ -1,5 +1,5 @@
 {% set name = "numcodecs" %}
-{% set version = "0.12.1" %}
+{% set version = "0.13.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,16 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 05d91a433733e7eef268d7e80ec226a0232da244289614a8f3826901aec1098e
+  sha256: ba4fac7036ea5a078c7afe1d4dffeb9685080d42f19c9c16b12dad866703aa2e
+  patches:
+    # Fix compiling assembly files
+    # Can be removed when https://github.com/zarr-developers/numcodecs/pull/562
+    # is in a numcodecs release
+    - patches/including_assmembly.patch
 
 build:
-  number: 1
+  number: 0
+  skip: true  # [py<310]
   script_env:
     - DISABLE_NUMCODECS_AVX2=""
     - DISABLE_NUMCODECS_SSE2=""  # [not x86]
@@ -26,6 +32,7 @@ requirements:
     - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - numpy                                  # [build_platform != target_platform]
   host:
     - python
     - pip
@@ -34,9 +41,11 @@ requirements:
     - setuptools_scm >=6.2
     - tomli
     - py-cpuinfo
+    - numpy
   run:
     - python
     - numpy >=1.7
+    # Optional dependecy included for ease of use
     - msgpack-python
 
 test:
