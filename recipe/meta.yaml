@@ -44,8 +44,9 @@ requirements:
     - numpy
   run:
     - python
-    - msgpack-python
     - numpy >=1.7
+    # Optional dependecy included for ease of use
+    - msgpack-python
 
 test:
   requires:
