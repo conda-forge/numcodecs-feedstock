@@ -17,7 +17,6 @@ source:
 build:
   number: 0
   skip: true  # [py<310]
-
   script_env:
     - DISABLE_NUMCODECS_AVX2=""
     - DISABLE_NUMCODECS_SSE2=""  # [not x86]
