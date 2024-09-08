@@ -15,7 +15,7 @@ source:
     - patches/including_assmembly.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<310]
   script_env:
     - DISABLE_NUMCODECS_AVX2=""
