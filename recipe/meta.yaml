@@ -8,11 +8,6 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: a3cf37881df0898f3a9c0d4477df88133fe85185bffe57ba31bcc2fa207709bc
-  patches:
-    # Fix compiling assembly files
-    # Can be removed when https://github.com/zarr-developers/numcodecs/pull/562
-    # is in a numcodecs release
-    - patches/including_assmembly.patch
 
 build:
   number: 0
