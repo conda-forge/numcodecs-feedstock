@@ -1,5 +1,5 @@
 {% set name = "numcodecs" %}
-{% set version = "0.13.0" %}
+{% set version = "0.13.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: ba4fac7036ea5a078c7afe1d4dffeb9685080d42f19c9c16b12dad866703aa2e
-  patches:
-    # Fix compiling assembly files
-    # Can be removed when https://github.com/zarr-developers/numcodecs/pull/562
-    # is in a numcodecs release
-    - patches/including_assmembly.patch
+  sha256: a3cf37881df0898f3a9c0d4477df88133fe85185bffe57ba31bcc2fa207709bc
 
 build:
   number: 0
@@ -74,6 +69,7 @@ about:
 extra:
   recipe-maintainers:
     - alimanfoo
+    - dstansby
     - jakirkham
     - joshmoore
     - jrbourbeau
