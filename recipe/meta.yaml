@@ -49,6 +49,7 @@ test:
     - pytest-cov
     - pip
     - importlib_metadata
+    - crc32c >=2.7
   imports:
     - numcodecs
     - numcodecs.blosc
