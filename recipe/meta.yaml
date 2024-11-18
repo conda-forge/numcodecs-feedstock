@@ -1,17 +1,26 @@
 {% set name = "numcodecs" %}
-{% set version = "0.13.1" %}
+{% set version = "0.14.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: a3cf37881df0898f3a9c0d4477df88133fe85185bffe57ba31bcc2fa207709bc
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 3f138f5e4f574a94a4a8ba1c8be9323ec89bce363f4c65801d8e29e5064c6599
+  patches:
+    ################################################################
+    # Fix softening of `crc32c` test dependency                    #
+    #                                                              #
+    # xref: https://github.com/zarr-developers/numcodecs/pull/635  #
+    # xref: https://github.com/zarr-developers/numcodecs/pull/637  #
+    ################################################################
+    - patches/PR_635.patch
+    - patches/PR_637.patch
 
 build:
   number: 0
-  skip: true  # [py<310]
+  skip: true  # [py<311]
   script_env:
     - DISABLE_NUMCODECS_AVX2=""
     - DISABLE_NUMCODECS_SSE2=""  # [not x86]
@@ -39,7 +48,7 @@ requirements:
     - numpy
   run:
     - python
-    - numpy >=1.7
+    - numpy >=1.24
     # Optional dependecy included for ease of use
     - msgpack-python
 

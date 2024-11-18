@@ -1,0 +1,26 @@
+From 4b3dc36f8e96d91e4efcfb8f231863505f9a1594 Mon Sep 17 00:00:00 2001
+From: jakirkham <jakirkham@gmail.com>
+Date: Wed, 13 Nov 2024 10:37:04 -0800
+Subject: [PATCH] Skip `checksum32` tests if `crc32` is missing
+
+---
+ numcodecs/tests/test_checksum32.py | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/numcodecs/tests/test_checksum32.py b/numcodecs/tests/test_checksum32.py
+index 7aad9da3..8acec3fc 100644
+--- a/numcodecs/tests/test_checksum32.py
++++ b/numcodecs/tests/test_checksum32.py
+@@ -3,7 +3,11 @@
+ import numpy as np
+ import pytest
+ 
+-from numcodecs.checksum32 import CRC32, CRC32C, Adler32
++try:
++    from numcodecs.checksum32 import CRC32, CRC32C, Adler32
++except ImportError:  # pragma: no cover
++    pytest.skip("numcodecs.checksum32 not available", allow_module_level=True)
++
+ from numcodecs.tests.common import (
+     check_backwards_compatibility,
+     check_config,
