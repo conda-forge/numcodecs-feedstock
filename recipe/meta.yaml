@@ -36,7 +36,7 @@ requirements:
     - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - numpy >=2                                # [build_platform != target_platform]
+    - numpy                                  # [build_platform != target_platform]
   host:
     - python
     - pip
@@ -45,7 +45,7 @@ requirements:
     - setuptools_scm >=6.2
     - tomli
     - py-cpuinfo
-    - numpy >=2
+    - numpy
   run:
     - python
     - msgpack-python
