@@ -8,15 +8,6 @@ package:
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 00a364924fd2d600bcce6e2ced96b47c40eb5f9d84bf4b0207aa208d9ce6cd1c
-  patches:
-    ################################################################
-    # Fix softening of `crc32c` test dependency                    #
-    #                                                              #
-    # xref: https://github.com/zarr-developers/numcodecs/pull/635  #
-    # xref: https://github.com/zarr-developers/numcodecs/pull/637  #
-    ################################################################
-    - patches/PR_635.patch
-    - patches/PR_637.patch
 
 build:
   number: 0
