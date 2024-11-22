@@ -1,5 +1,5 @@
 {% set name = "numcodecs" %}
-{% set version = "0.14.0" %}
+{% set version = "0.14.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,16 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 3f138f5e4f574a94a4a8ba1c8be9323ec89bce363f4c65801d8e29e5064c6599
-  patches:
-    ################################################################
-    # Fix softening of `crc32c` test dependency                    #
-    #                                                              #
-    # xref: https://github.com/zarr-developers/numcodecs/pull/635  #
-    # xref: https://github.com/zarr-developers/numcodecs/pull/637  #
-    ################################################################
-    - patches/PR_635.patch
-    - patches/PR_637.patch
+  sha256: 00a364924fd2d600bcce6e2ced96b47c40eb5f9d84bf4b0207aa208d9ce6cd1c
 
 build:
   number: 0
