@@ -1,5 +1,5 @@
 {% set name = "numcodecs" %}
-{% set version = "0.15.1" %}
+{% set version = "0.16.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: eeed77e4d6636641a2cc605fbc6078c7a8f2cc40f3dfa2b3f61e52e6091b04ff
+  sha256: c47f20d656454568c6b4697ce02081e6bbb512f198738c6a56fafe8029c97fb1
 
 build:
   number: 0
@@ -38,6 +38,7 @@ requirements:
     - py-cpuinfo
     - numpy
   run:
+    - typing_extensions
     - deprecated
     - python
     - numpy >=1.24
