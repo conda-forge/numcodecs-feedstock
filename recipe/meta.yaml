@@ -10,7 +10,7 @@ source:
   sha256: c47f20d656454568c6b4697ce02081e6bbb512f198738c6a56fafe8029c97fb1
 
 build:
-  number: 1
+  number: 2
   skip: true  # [py<311]
   script_env:
     - DISABLE_NUMCODECS_AVX2=""
