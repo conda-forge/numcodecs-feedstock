@@ -49,10 +49,11 @@ test:
   requires:
     - coverage
     - flake8
+    - importlib_metadata
+    - pip
     - pytest
     - pytest-cov
-    - pip
-    - importlib_metadata
+    - pyzstd
   imports:
     - numcodecs
     - numcodecs.blosc
