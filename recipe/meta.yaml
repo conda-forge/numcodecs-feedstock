@@ -1,13 +1,13 @@
 {% set name = "numcodecs" %}
-{% set version = "0.16.5" %}
+{% set version = "0.17.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 0d0fb60852f84c0bd9543cc4d2ab9eefd37fc8efcc410acd4777e62a1d300318
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: e8db2e337bdafd3bb5f891a2543b53b2b36a509ce9d587af2846db3715b6c8b9
 
 build:
   number: 0
@@ -41,7 +41,7 @@ requirements:
     - typing_extensions
     - deprecated
     - python
-    - numpy >=1.24
+    - numpy >=2.0
     # Optional dependecy included for ease of use
     - msgpack-python
 
