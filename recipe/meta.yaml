@@ -11,48 +11,44 @@ source:
 
 build:
   number: 0
-  skip: true  # [py<311]
-  script_env:
-    - DISABLE_NUMCODECS_AVX2=""
-    - DISABLE_NUMCODECS_SSE2=""  # [not x86]
-  script:
-    - export CFLAGS="${CFLAGS} -pthread"  # [aarch64 or ppc64le]
-    - {{ PYTHON }} -m pip install . -vv
+  skip: true  # [py<312]
 
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - cython                                 # [build_platform != target_platform]
+    - cython >=3.1                           # [build_platform != target_platform]
+    - meson-python >=0.17                    # [build_platform != target_platform]
+    - meson >=1.6.0                          # [build_platform != target_platform]
+    - setuptools-scm >=6.2                   # [build_platform != target_platform]
+    - numpy                                  # [build_platform != target_platform]
+    - ninja
+    - pkg-config
     - {{ stdlib('c') }}
     - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
-    - numpy                                  # [build_platform != target_platform]
   host:
     - python
     - pip
-    - cython
-    - setuptools >=64
-    - setuptools_scm >=6.2
-    - tomli
-    - py-cpuinfo
+    - cython >=3.1
+    - meson-python >=0.17
+    - meson >=1.6.0
+    - setuptools-scm >=6.2
     - numpy
   run:
-    - typing_extensions
-    - deprecated
     - python
     - numpy >=2.0
+    - typing_extensions
     # Optional dependecy included for ease of use
     - msgpack-python
 
 test:
+  source_files:
+    - tests
+    - fixture
   requires:
-    - coverage
-    - flake8
     - importlib_metadata
     - pip
     - pytest
-    - pytest-cov
     - pyzstd
   imports:
     - numcodecs
@@ -61,7 +57,7 @@ test:
     - numcodecs.zstd
   commands:
     - pip check
-    - pytest -v --pyargs numcodecs
+    - pytest -v tests
 
 about:
   home: https://github.com/zarr-developers/numcodecs
