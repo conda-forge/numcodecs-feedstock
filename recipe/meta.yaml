@@ -8,6 +8,9 @@ package:
 source:
   url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: e8db2e337bdafd3bb5f891a2543b53b2b36a509ce9d587af2846db3715b6c8b9
+  patches:
+    # MSVC can't compile zstd's .S assembly; zstd disables it under MSVC anyway
+    - 0001-skip-zstd-asm-on-msvc.patch
 
 build:
   number: 0

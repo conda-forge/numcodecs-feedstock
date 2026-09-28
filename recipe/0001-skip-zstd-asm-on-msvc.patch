@@ -1,0 +1,14 @@
+--- a/src/numcodecs/meson.build	2026-09-28 21:10:56
++++ b/src/numcodecs/meson.build	2026-09-28 21:10:56
+@@ -78,8 +78,9 @@
+     '../../c-blosc/internal-complibs/zstd-1.5.6/dictBuilder/zdict.c',
+   )
+ 
+-  # Assembly files — meson handles .S natively
+-  if host_machine.cpu_family() == 'x86_64'
++  # Assembly files — meson handles .S natively, but MSVC can't compile them
++  # (zstd disables its assembly code paths under MSVC anyway).
++  if host_machine.cpu_family() == 'x86_64' and cc.get_argument_syntax() != 'msvc'
+     zstd_sources += files(
+       '../../c-blosc/internal-complibs/zstd-1.5.6/decompress/huf_decompress_amd64.S',
+     )
