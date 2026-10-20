@@ -1,5 +1,5 @@
 {% set name = "numcodecs" %}
-{% set version = "0.16.5" %}
+{% set version = "0.16.6" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 0d0fb60852f84c0bd9543cc4d2ab9eefd37fc8efcc410acd4777e62a1d300318
+  sha256: 5e446928af7c40b4dc8f51e960b4c9fb14f617846577d2fcf35ae2f92738f00f
 
 build:
   number: 0
