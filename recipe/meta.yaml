@@ -13,7 +13,7 @@ source:
     - 0001-skip-zstd-asm-on-msvc.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<312]
 
 requirements:
